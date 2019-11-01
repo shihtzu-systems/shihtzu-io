@@ -1,0 +1,5 @@
+.DS_Store
+.idea
+out
+bin
+node_modules
