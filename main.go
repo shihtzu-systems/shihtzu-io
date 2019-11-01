@@ -20,6 +20,18 @@ func main() {
 		http.ServeFile(w, r, "./index.html")
 	})
 
+	r.HandleFunc("/app/version", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./app.version")
+	})
+
+	r.HandleFunc("/app/datestamp", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./app.datestamp")
+	})
+
+	r.HandleFunc("/app/timestamp", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./app.timestamp")
+	})
+
 	// static
 	r.PathPrefix("/static/").Handler(
 		http.StripPrefix("/static/",

@@ -41,6 +41,10 @@ COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /shihtzu /shihtzu
 
 # app files
+COPY ./app.datestamp /app.datestamp
+COPY ./app.timestamp /app.timestamp
+COPY ./app.version /app.version
+
 COPY ./index.html /index.html
 COPY ./static /static
 
