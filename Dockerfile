@@ -45,7 +45,6 @@ COPY ./app.datestamp /app.datestamp
 COPY ./app.timestamp /app.timestamp
 COPY ./app.version /app.version
 
-COPY ./index.html /index.html
 COPY ./static /static
 
 # Declare the port on which the webserver will be exposed.

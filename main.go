@@ -17,7 +17,7 @@ func main() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "./index.html")
+		http.ServeFile(w, r, "./static/index.html")
 	})
 
 	r.HandleFunc("/app/version", func(w http.ResponseWriter, r *http.Request) {
@@ -33,9 +33,13 @@ func main() {
 	})
 
 	// static
-	r.PathPrefix("/static/").Handler(
-		http.StripPrefix("/static/",
-			http.FileServer(http.Dir("./static/"))))
+	r.PathPrefix("/images/").Handler(
+		http.StripPrefix("/images",
+			http.FileServer(http.Dir("./static/images"))))
+
+	r.PathPrefix("/styles/").Handler(
+		http.StripPrefix("/styles",
+			http.FileServer(http.Dir("./static/styles"))))
 
 	r.Use(loggingMiddleware)
 
